@@ -1,18 +1,12 @@
-# Licensed under the Apache License, Version 2.0 (the "License"); 
-# you may not use this file except in compliance with the License. 
-# You may obtain  a copy of the License at
-#
-#  http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing,
-# software distributed under the License is distributed on an
-# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-# KIND, either express or implied.  See the License for the
-# specific language governing permissions and limitations
-# under the License.
 language: java
 install:
-  - sudo apt-get update
+- bash install.sh
 script:
-  - jdk_switcher use oraclejdk7
-  - mvn install javadoc:aggregate
+- bash test.sh
+before_script:
+- bash pull.sh
+after_success:
+- bash push.sh
+env:
+  global:
+    secure: r+3IvOmYfxCyUaZ30W3vTkvNIf1Sthspdf9lYwXYLxsWK+rOk8JKCX/gsGwNQrrZbvGjr3Hi7FkRP4Yo8DhJOqJKsPEuMw8KG6es6PSAlykHfnUmR/RJC5tsMEinIioOxkw6fVDxz40AIxThhkPF+72DiA417KsTaq0ngdt9QNDcbqO+ZApclrrs3oXOQ6t47qimZwCuZ4r6XUSPvqP+oKagRX9970T2iLs88SXI8qRr+v3KT8EU8pdI5SwHuDE0MnPwfGMbJbQnjL/os9hGer8tvg0+XGcmsDlsIZb/WFTXdszZcBRxSMS2ewHOzqj8IiYdYojO6ZWXeQBQPd8QfdLZYFmkI7RZYlizSnMXpirAfGum1+1q6HRZ3b1FHzopQNYOcgA6i1CiPQ9fELERQsIt4KZSscj2fioODIm/Ux2W63aPnHWRODaWdpkYSGePHgqaGltUgkyqRTQKKNeZl6a8MQJ5+qVnPIYOrThtaLY3pRQ1PLZAX6gN7Ea+TCdUabI0am+YjtjA1nGasY4bBhhqesm89y7LYnLAryUY6tuadp0KSod06KRQ06cjw2ah+42yF9gTrBEWhYmFmTv8Z0xb1QaoM+K8/fLW+N21w/mXd13hfyrhCl9CIlT/toMtN7QpHLttMx4D3NfTJsGstHvdDQ/2BXD45sILCknw144=
